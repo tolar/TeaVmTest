@@ -1,5 +1,6 @@
 package cz.vaclavtolar;
 
+import com.itextpdf.text.DocumentException;
 import org.teavm.jso.ajax.XMLHttpRequest;
 import org.teavm.jso.browser.Window;
 import org.teavm.jso.dom.events.EventListener;
@@ -7,6 +8,9 @@ import org.teavm.jso.dom.events.MouseEvent;
 import org.teavm.jso.dom.html.HTMLButtonElement;
 import org.teavm.jso.dom.html.HTMLDocument;
 import org.teavm.jso.dom.html.HTMLElement;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 public class Client {
 
@@ -23,6 +27,15 @@ public class Client {
             @Override
             public void handleEvent(MouseEvent evt) {
                 sayHello();
+                try {
+                    Util.test();
+                } catch (GeneralSecurityException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
